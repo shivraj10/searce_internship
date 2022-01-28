@@ -1,0 +1,30 @@
+class Solution:
+    # @param A : list of integers
+    # @param B : list of integers
+    # @param C : list of integers
+    # @return a list of integers
+    def solve(self, a, b, c):
+        dic={}
+        for i in list(set(a)):
+            dic[i]=1
+        for i in list(set(b)):
+            if i in dic:
+                dic[i]+=1
+            else:
+                dic[i]=1
+        for i in list(set(c)):
+            if i in dic:
+                dic[i]+=1
+            else:
+                dic[i]=1
+
+        x=[]
+        for i in dic:
+            if dic[i]>=2:
+                x+=[i]
+        x.sort()
+        return x
+
+
+        
+        
