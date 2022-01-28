@@ -1,0 +1,13 @@
+class Solution:
+    # @param A : list of integers
+    # @return a list of integers
+    def solve(self,a):
+        dic={}
+        for i in range(len(a)):
+            if a[i] in dic.keys():
+                a[dic[a[i]]]+=1
+                dic[a[i]+1]=dic[a[i]]
+                dic[a[i]]=i
+            elif a[i] not in dic:
+                dic[a[i]]=i
+        return a
