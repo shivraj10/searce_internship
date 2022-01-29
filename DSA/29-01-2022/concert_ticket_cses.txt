@@ -36,6 +36,7 @@ ll solve(){
     }
     
 }
+
 int main() {
     fast;
     // testcase{
