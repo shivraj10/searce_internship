@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#define f(i,n) for(long long int i = 0 ; i < n;  i++)
+#define F first
+#define S second
+#define vll vector<ll>
+#define all(s) s.begin(), s.end()
+#define u_s unordered_set
+#define u_m unordered_map
+#define ll long long int
+#define pb push_back
+#define pll pair<ll,ll>
+#define parr(arr) for(auto x: arr)cout<<x<<" ";cout<<endl
+#define fast ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#define testcase ll tt; cin>>tt; while(tt--)
+using namespace std;
+
+ll solve(){
+    ll n; cin>>n;
+    priority_queue<ll, vll, greater<ll>> pq;
+    vector<pll> v(n); f(i, n) cin>>v[i].F>>v[i].S;
+    sort(all(v));
+    ll maxi = 0;
+    f(i, n){
+        while(pq.size() && pq.top() <= v[i].F) {
+            pq.pop();
+        }
+        pq.push(v[i].S);
+        maxi = max(maxi, (ll)pq.size());
+    }
+    return maxi;
+}
+
+int main() {
+    fast;
+    // testcase{
+        cout<<solve()<<'\n';
+    // }
+    return 0;
+}
